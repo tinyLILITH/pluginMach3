@@ -19,6 +19,17 @@ namespace tst {
 	///          the designers will not be able to interact properly with localized
 	///          resources associated with this form.
 	/// </summary>
+
+
+	public ref struct GD
+	{
+	public:
+		static String^ inputBuff = "";
+		static int modeSelect = 0;
+		static int slowJogSwitch = 0;
+
+	};
+
 	public ref class PlugInControlDialog : public System::Windows::Forms::Form
 	{
 	public:
