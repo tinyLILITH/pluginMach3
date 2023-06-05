@@ -260,7 +260,6 @@ namespace tst {
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &PlugInControlDialog::button1_Click);
 			// 
 			// listBox1
 			// 
@@ -269,12 +268,10 @@ namespace tst {
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(120, 95);
 			this->listBox1->TabIndex = 0;
-			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &PlugInControlDialog::listBox1_SelectedIndexChanged);
 			// 
 			// timer1
 			// 
 			this->timer1->Enabled = true;
-			this->timer1->Tick += gcnew System::EventHandler(this, &PlugInControlDialog::timer1_Tick);
 			// 
 			// PlugInControlDialog
 			// 
@@ -373,12 +370,5 @@ private: System::Void button2_Click_1(System::Object^  sender, System::EventArgs
 					 Sleep(50);		 
 			 
 			 }
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-
-		 }
-private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-		 }
 };
 }
