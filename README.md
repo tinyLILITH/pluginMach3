@@ -5,4 +5,4 @@
 3. ПКМ на проекте ->  Ссылки -> Удалить Interop.Mach4.1.0
 4. Заново создать ссылку Interop.Mach4.1.0
 5. Указать ссылку на mach3.exe
-   
+6. Удалить класс GD c формы PluginControlDialog
