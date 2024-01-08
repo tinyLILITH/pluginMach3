@@ -21,14 +21,7 @@ namespace tst {
 	/// </summary>
 
 
-	public ref struct GD
-	{
-	public:
-		static String^ inputBuff = "";
-		static int modeSelect = 0;
-		static int slowJogSwitch = 0;
 
-	};
 
 	public ref class PlugInControlDialog : public System::Windows::Forms::Form
 	{
@@ -56,13 +49,15 @@ namespace tst {
 			}
 		}
 	public: System::IO::Ports::SerialPort^  Serial;
+	public: System::Windows::Forms::ComboBox^  comList;
+	public: String ^sTemp;
 	protected: 
 
 	protected: 
 	private: System::Windows::Forms::TabControl^  tabControl1;
 	private: System::Windows::Forms::TabPage^  settingsTab;
 	private: System::Windows::Forms::ComboBox^  baudList;
-	private: System::Windows::Forms::ComboBox^  comList;
+
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  lblCOM;
 	private: System::Windows::Forms::Button^  connCOM;
@@ -77,7 +72,9 @@ namespace tst {
 	private: System::Windows::Forms::Button^  button2;
 	public: IMach4^ _mach;
 	public: IMyScriptObject^ _mInst;
-	public: System::Windows::Forms::Timer^  timer1;
+	private: System::Windows::Forms::Timer^  timer1;
+	public: 
+
 
 
 
@@ -123,9 +120,10 @@ namespace tst {
 			// 
 			// Serial
 			// 
-			this->Serial->PortName = L"COM5";
-			this->Serial->ReadBufferSize = 10;
-			this->Serial->ReadTimeout = 10;
+			this->Serial->PortName = L"NONE";
+			this->Serial->ReadBufferSize = 20;
+			this->Serial->ReadTimeout = 50;
+			this->Serial->WriteTimeout = 2;
 			// 
 			// tabControl1
 			// 
@@ -285,7 +283,6 @@ namespace tst {
 			// timer1
 			// 
 			this->timer1->Enabled = true;
-			this->timer1->Tick += gcnew System::EventHandler(this, &PlugInControlDialog::timer1_Tick);
 			// 
 			// PlugInControlDialog
 			// 
@@ -311,41 +308,7 @@ namespace tst {
 
 		private: System::Void refreshCOM_Click(System::Object^  sender, System::EventArgs^  e) {
 
-					 array<String^> ^AvailableSerialPorts;
-	 array<unsigned char> ^aTemp;
-	 String ^sTemp;
-
-	try
-	 {
-		 comList->Items->Clear();
-		AvailableSerialPorts = this->Serial->GetPortNames();
-
-		comList->Items->Add("None");
-		for(int Count = 0; Count < AvailableSerialPorts->Length; Count++)
-		{
-			sTemp = AvailableSerialPorts[Count];
-
-			//Remove any non numeric last letter which can be added by microsoft bluetooth drivers
-			aTemp = System::Text::Encoding::UTF8->GetBytes(sTemp);
-			while (
-				(aTemp->Length > 1) && 
-				((aTemp[(aTemp->Length - 1)] < '0') || (aTemp[(aTemp->Length - 1)] > '9'))
-				)
-			{
-				Array::Resize(aTemp, (aTemp->Length - 1));
-			}
-			sTemp = System::Text::Encoding::UTF8->GetString(aTemp);
-
-			comList->Items->Add(sTemp);
-		}
-		comList->SelectedIndex = 0;
-	 }
-
-	 catch(System::Exception^ e)
-	 {
-
-	 }
-}
+				 }
 
 private: System::Void connCOM_Click(System::Object^  sender, System::EventArgs^  e) {
 
@@ -389,7 +352,11 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		 }
 private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
+
+
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+
+
 		 }
 };
 }

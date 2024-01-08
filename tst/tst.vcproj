@@ -200,10 +200,10 @@
 			AssemblyName="System.Xml, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
 			MinFrameworkVersion="131072"
 		/>
-		<ActiveXReference
-			ControlGUID="{316FD4DD-E21C-4672-A938-0B36276C54A0}"
-			ControlVersion="1.0"
-			LocaleID="0"
+		<AssemblyReference
+			RelativePath="..\..\..\..\..\..\..\Mach3\Interop.Mach4.1.0.dll"
+			AssemblyName="Interop.Mach4.1.0, Version=1.0.0.0, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
 		/>
 	</References>
 	<Files>
