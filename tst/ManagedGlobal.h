@@ -27,6 +27,10 @@ namespace tst
 		//--------------------------------------------
 		static	 PlugInControlDialog^ PCD = gcnew PlugInControlDialog();
 		static	 ConfigDialog^ CD = gcnew ConfigDialog();
+		static   IMach4^ _mach = (IMach4^) Marshal::GetActiveObject("Mach4.Document");
+		static	 IMyScriptObject^ _mInst = (IMyScriptObject^) _mach->GetScriptDispatch();
+
+		static String^ initRequestCOM = "";
 
 	};
 }

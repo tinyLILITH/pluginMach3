@@ -138,8 +138,9 @@ namespace tst {
 			// 
 			// Serial
 			// 
-			this->Serial->ReadTimeout = 50;
-			this->Serial->WriteTimeout = 50;
+			this->Serial->BaudRate = 115200;
+			this->Serial->ReadTimeout = 100;
+			this->Serial->WriteTimeout = 100;
 			// 
 			// label1
 			// 
