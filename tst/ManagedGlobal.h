@@ -25,8 +25,9 @@ namespace tst
 		//--- sample of a global modeless dialog -----
 		//static	MonitorDialog^ monitorDialog;
 		//--------------------------------------------
-		static	 PlugInControlDialog^ pluginControlDialog;
-		static	 ConfigDialog^ configDialog;
+		static	 PlugInControlDialog^ PCD = gcnew PlugInControlDialog();
+		static	 ConfigDialog^ CD = gcnew ConfigDialog();
+
 	};
 }
 #endif
