@@ -88,10 +88,13 @@ namespace tst {
 			this->Controls->Add(this->listBox1);
 			this->Name = L"PlugInControlDialog";
 			this->Text = L"PlugInControlDialog";
+			this->Load += gcnew System::EventHandler(this, &PlugInControlDialog::PlugInControlDialog_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 
-};
+	private: System::Void PlugInControlDialog_Load(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	};
 }

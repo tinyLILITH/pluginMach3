@@ -31,6 +31,7 @@ namespace tst
 		static	 IMyScriptObject^ _mInst = (IMyScriptObject^) _mach->GetScriptDispatch();
 
 		static String^ initRequestCOM = "";
+		static String^ updRequestCOM = "";
 
 	};
 }
