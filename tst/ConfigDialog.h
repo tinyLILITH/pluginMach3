@@ -139,8 +139,10 @@ namespace tst {
 			// Serial
 			// 
 			this->Serial->BaudRate = 115200;
-			this->Serial->ReadTimeout = 200;
-			this->Serial->WriteTimeout = 200;
+			this->Serial->ReadBufferSize = 1024;
+			this->Serial->ReadTimeout = 50;
+			this->Serial->WriteBufferSize = 16;
+			this->Serial->WriteTimeout = 50;
 			// 
 			// label1
 			// 
@@ -183,8 +185,6 @@ namespace tst {
 	 {
  	 comList->Items->Clear();
 		AvailableSerialPorts = this->Serial->GetPortNames();
-
-		comList->Items->Add("None");
 		for(int Count = 0; Count < AvailableSerialPorts->Length; Count++)
 		{
 			sTemp = AvailableSerialPorts[Count];
@@ -222,7 +222,7 @@ namespace tst {
 
 
 
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
 
 // Сохранение выбранного COM порта в файл
@@ -239,11 +239,10 @@ System::IO::StreamWriter^ outputFile = gcnew System::IO::StreamWriter(filePath);
 outputFile->WriteLine(comList->SelectedItem);
 this->statusCOM->Text = "COM порт сохранён";
 outputFile->Close();
+
+
+
 //---Сохранение выбранного COM порта в файл---------
-
-
-
-
 
 
 }
