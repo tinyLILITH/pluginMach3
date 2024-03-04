@@ -54,8 +54,8 @@ namespace tst {
 
 
 	public: System::Windows::Forms::ListBox^  listBox1;
+	public: System::Windows::Forms::Timer^  stopJog;
 	private: System::ComponentModel::IContainer^  components;
-	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -68,7 +68,9 @@ namespace tst {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->stopJog = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// listBox1
@@ -78,6 +80,7 @@ namespace tst {
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(497, 108);
 			this->listBox1->TabIndex = 0;
+
 			// 
 			// PlugInControlDialog
 			// 
@@ -88,13 +91,10 @@ namespace tst {
 			this->Controls->Add(this->listBox1);
 			this->Name = L"PlugInControlDialog";
 			this->Text = L"PlugInControlDialog";
-			this->Load += gcnew System::EventHandler(this, &PlugInControlDialog::PlugInControlDialog_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 
-	private: System::Void PlugInControlDialog_Load(System::Object^  sender, System::EventArgs^  e) {
-			 }
 	};
 }

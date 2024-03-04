@@ -8,10 +8,8 @@ using namespace System::Data;
 using namespace System::Drawing;
 
 
-
 namespace tst {
-
-
+ 
 
 	/// <summary>
 	/// Summary for ConfigDialog
@@ -28,9 +26,7 @@ namespace tst {
 		ConfigDialog(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+
 		}
 
 	protected:
@@ -55,8 +51,6 @@ namespace tst {
 	private: System::Windows::Forms::ToolStripStatusLabel^  toolStripStatusLabel3;
 	private: System::Windows::Forms::ToolStripStatusLabel^  statusCOM;
 	private: System::Windows::Forms::Label^  label1;
-
-
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -139,8 +133,9 @@ namespace tst {
 			// Serial
 			// 
 			this->Serial->BaudRate = 115200;
-			this->Serial->ReadTimeout = 100;
-			this->Serial->WriteTimeout = 100;
+			this->Serial->DiscardNull = true;
+			this->Serial->ReadTimeout = 50;
+			this->Serial->WriteTimeout = 50;
 			// 
 			// label1
 			// 
@@ -161,7 +156,7 @@ namespace tst {
 			this->Controls->Add(this->comList);
 			this->Controls->Add(this->button1);
 			this->Name = L"ConfigDialog";
-			this->Text = L"ConfigDialog";
+			this->Text = L"Настройки подключения";
 			this->Load += gcnew System::EventHandler(this, &ConfigDialog::ConfigDialog_Load);
 			this->statusStrip1->ResumeLayout(false);
 			this->statusStrip1->PerformLayout();
@@ -173,7 +168,7 @@ namespace tst {
 
 //Функции самописные
 
-			void getCOMPorts(){
+		void getCOMPorts(){
 	
 		array<String^> ^AvailableSerialPorts;
 	 array<unsigned char> ^aTemp;
@@ -207,7 +202,7 @@ namespace tst {
 
 	 catch(System::Exception^ e)
 	 {
-
+		 e->Message;
 	 }
 	
 	}
